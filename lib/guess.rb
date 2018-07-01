@@ -1,4 +1,5 @@
 class Guess
-  def initialize
+  attr_reader
+  def initialize (guess, )
 
   end
