@@ -6,7 +6,6 @@ class CardTest <Minitest::Test
   def test_if_card_exsits
   card = Card.new("Ace", "Spades")
   assert_instance_of Card, card
-
   end
 
   def test_card_value
@@ -19,5 +18,6 @@ class CardTest <Minitest::Test
     assert_equal "Spades", card.suit
   end
 
+###update 
 
 end
