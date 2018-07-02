@@ -1,5 +1,7 @@
 class Guess
   attr_reader
-  def initialize (guess, )
+  def initialize (guess, card)
+
 
   end
+end
