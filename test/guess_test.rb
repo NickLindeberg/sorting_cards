@@ -4,6 +4,8 @@ require "minitest/autorun"
 require 'minitest/pride'
 require 'pry'
 
+#####
+
 class GuessTest <Minitest::Test
   def test_if_card_exists
     card = Card.new("10", "Hearts")
