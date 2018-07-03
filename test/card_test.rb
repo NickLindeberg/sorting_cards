@@ -18,6 +18,6 @@ class CardTest <Minitest::Test
     assert_equal "Spades", card.suit
   end
 
-###update 
+###update #####
 
 end

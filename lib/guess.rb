@@ -1,6 +1,6 @@
 require '../lib/card.rb'
 
-######check attr_reader info
+######check attr_reader info####
 class Guess
   attr_reader :response, :card
   def initialize (response, card)
