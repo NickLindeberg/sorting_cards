@@ -1,26 +1,30 @@
-require '../lib/card.rb'
+require './lib/card.rb'
 
-######check attr_reader info####
 class Guess
-  attr_reader :response, :card
+  attr_reader :response,
+              :card,
+              :suit,
+              :value
   def initialize (response, card)
     @response = response
+    # @card = Card.new("10", "Hearts")
     @card = card
   end
 
   def correct?
-    true
-
-  end
-
-  def response
-    "#{value} of #{suit}"
-
+    if "#{card.value} of #{card.suit}" == @response
+      true
+    else
+      false
+    end
   end
 
   def feedback
-
-
+    if correct?
+       "Correct"
+    else
+       "Incorrect"
+    end
   end
 
 end
