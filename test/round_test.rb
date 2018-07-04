@@ -39,11 +39,62 @@ class RoundTest <Minitest::Test
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
-binding.pry
+
     assert_equal card_1, round.current_card
   end
 
+  def test_if_guessses_recorded
+    card_1 = Card.new("3", "Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
 
+    assert_instance_of Guess, round.record_guess({value: "Jack", suit: "Diamonds"})
+    refute round.guesses.empty?
+  end
 
+  def test_if_guessses_counted
+    card_1 = Card.new("3", "Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "Jack", suit: "Diamonds"})
+
+    assert_equal 1, round.guesses.count
+  end
+
+  def test_if_first_guess_correct
+    card_1 = Card.new("3", "Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+
+    assert_equal "Correct", round.guesses.first.feedback
+  end
+
+  def test_if_guessses_correct
+    card_1 = Card.new("3", "Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    round.record_guess({value: "Jack", suit: "Diamonds"})
+
+    assert_equal 2, round.guesses.count
+  end
+
+  def test_if_second_guess_incorrect
+    card_1 = Card.new("3", "Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+    round.record_guess({value: "3", suit: "Hearts"})
+    round.record_guess({value: "Jack", suit: "Diamonds"})
+
+    assert_equal "Incorrect", round.guesses.last.feedback
+  end
+
+  def 
 
 end
