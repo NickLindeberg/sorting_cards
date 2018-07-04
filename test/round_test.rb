@@ -1,1 +1,49 @@
-#
+require "./lib/guess.rb"
+require './lib/card.rb'
+require './lib/deck.rb'
+require './lib/round.rb'
+require "minitest/autorun"
+require 'minitest/pride'
+require 'pry'
+
+class RoundTest <Minitest::Test
+  def test_if_round_exists
+    card_1 = Card.new("3", "Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+
+    assert_instance_of Round, round
+  end
+
+  def test_if_round_calls_deck
+    card_1 = Card.new("3", "Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+
+    assert_instance_of Deck, round.deck
+  end
+
+  def test_if_guesses_creates_empty_array
+    card_1 = Card.new("3", "Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+
+    assert_equal [], round.guesses
+  end
+
+  def test_if_current_card_shows
+    card_1 = Card.new("3", "Hearts")
+    card_2 = Card.new("4", "Clubs")
+    deck = Deck.new([card_1, card_2])
+    round = Round.new(deck)
+
+    assert_instance_of Deck, round.current_card
+  end
+
+
+
+
+end
