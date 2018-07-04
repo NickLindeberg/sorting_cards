@@ -12,4 +12,5 @@ class DeckTest <Minitest::Test
     deck = Deck.new([card_1, card_2, card_3])
      expected = ([card_1, card_2, card_3])
 
-    assert_equal 
+    assert_equal
+#
