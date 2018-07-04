@@ -10,11 +10,11 @@ class Round
   end
 
   def current_card
-    @deck[0]
+    @deck
   end
 
   def record_guess
-
+    
   end
 
 end
