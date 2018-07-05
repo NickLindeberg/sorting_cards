@@ -37,8 +37,6 @@ class Round
       @total_guess += 1
     end
 
-
-
     def percent_correct
       @number_correct.to_f / @total_guess.to_f * 100
 

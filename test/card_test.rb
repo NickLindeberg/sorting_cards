@@ -16,8 +16,13 @@ class CardTest <Minitest::Test
 
   def test_card_suit
     card = Card.new("Ace", "Spades")
-    binding.pry
+
     assert_equal "Spades", card.suit
+  end
+
+  def test_card_total_value_works
+    card = Card.new("Ace", "Spades")
+    assert_equal 14.4, card.total_value
   end
 
 
